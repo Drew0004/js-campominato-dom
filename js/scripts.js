@@ -61,7 +61,7 @@ function stampCells (value, container){
                 matchResult.innerHTML = `Hai Perso! il tuo punteggio è: ${score}`;
                 setTimeout(() => {myGrid.innerHTML='';}, 2000);
                 // myGrid.innerHTML='';
-            }else{
+            }else if (!(this.classList.contains('bg-primary'))){
                 this.classList.add('bg-primary');
                 score++
                 console.log ('score: '+ score);
