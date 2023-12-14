@@ -4,9 +4,8 @@ const myGrid = document.getElementById('grid-container');
 
 const mySelect = document.getElementById('my-select');
 
-let cell;
-
 let bombs = [];
+
 
 
 
@@ -39,18 +38,29 @@ function stampCells (value, container){
     for (let i = 1; i <= value; i++){
 
         const item = document.createElement('div');
-        item.classList.add('square','d-flex' , 'justify-content-center', 'align-items-center','border', 'border-dark');
+        item.classList.add('square','d-flex' , 'justify-content-center', 'align-items-center','border', 'border-dark', 'c-pointer');
         item.innerHTML = i;
         container.append(item);
-        
+
 
         item.addEventListener('click', function(){
-            
-            if (bombs[j] == i){
-                this.classList.toggle('bg-danger');
-            }else{
-                this.classList.toggle('bg-primary');
+            let flag = false;
+            for(let j = 0; j < bombs.length; j++){
+                if (bombs[j] == i){
+                    flag = true;
+                }
             }
+
+            if (flag == true){
+                this.classList.add('bg-danger');
+                alert('Hai perso!');
+            }else{
+                this.classList.add('bg-primary');
+            }
+
+            //controllo celle cliccate (possibile vincita) (celle-bombe);
+            
+
             console.log (this.innerHTML=i);
         });
     }
@@ -64,7 +74,7 @@ function randomNumbers (min,max){
 }
 
 function randomMines(value, array){
-    for (let j = 0; j < 16 ; j++){
+    for (let number = 1; number <= 16 ; number++){
         let randomBomb = randomNumbers (1,value);
     
         

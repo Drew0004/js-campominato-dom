@@ -28,6 +28,10 @@
     height: 100px;
 }
 
+
+.c-pointer{
+    cursor: pointer;
+}
 /* 
     header 
 */
