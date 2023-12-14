@@ -6,6 +6,9 @@ const mySelect = document.getElementById('my-select');
 
 let cell;
 
+const bombs = [];
+
+
 
 myButton.addEventListener ('click', function(){
 
@@ -15,6 +18,15 @@ myButton.addEventListener ('click', function(){
     let selectedValue = parseInt(mySelect.value);
 
     stampCells(selectedValue, myGrid);
+
+    for (let j = 0; j < 16 ; j++){
+        const randomBomb = randomNumbers (1,selectedValue);
+    
+        bombs.push(randomBomb);
+        
+    }
+    
+    console.log(bombs);
     
 });
 
@@ -38,6 +50,10 @@ function stampCells (value, container){
     }
 }
 
+function randomNumbers (min,max){
+    const num = Math.floor(Math.random() * (max - min + 1)) + min
+    return num;
+}
 
 
     
