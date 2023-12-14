@@ -23,27 +23,18 @@ myButton.addEventListener ('click', function(){
         bombs = [];
     }
     randomMines (selectedValue, bombs);
-    
 
-
-    // for (let j = 0; j < 16 ; j++){
-    //     let randomBomb = randomNumbers (1,selectedValue);
+    console.log(bombs);
     
-        
-    //     let foundInArray = bombs.includes (randomBomb);
-    //     while (foundInArray == true){
-    //         randomBomb = randomNumbers (1, selectedValue);
-    //         foundInArray = bombs.includes (randomBomb);
-    //     }
-
-    //     bombs.push(randomBomb);
-    // }
-    
-    // console.log(bombs);
     
 });
 
-// Funzione
+
+
+
+
+
+// Funzioni
 function stampCells (value, container){
     for (let i = 1; i <= value; i++){
 
@@ -54,21 +45,19 @@ function stampCells (value, container){
         
 
         item.addEventListener('click', function(){
-            this.classList.toggle('bg-primary');
-
+            
+            if (bombs[j] == i){
+                this.classList.toggle('bg-danger');
+            }else{
+                this.classList.toggle('bg-primary');
+            }
             console.log (this.innerHTML=i);
         });
-
-        
     }
-
-
+            
+            
 
 }
-
-
-
-
 function randomNumbers (min,max){
     const num = Math.floor(Math.random() * (max - min + 1)) + min
     return num;
@@ -87,9 +76,17 @@ function randomMines(value, array){
 
         array.push(randomBomb);
     }
-    
-    console.log(array);
+
 }
+
+        
+
+
+
+
+
+
+
 
     
 
