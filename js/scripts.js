@@ -6,7 +6,7 @@ const mySelect = document.getElementById('my-select');
 
 let cell;
 
-const bombs = [];
+let bombs = [];
 
 
 
@@ -19,14 +19,27 @@ myButton.addEventListener ('click', function(){
 
     stampCells(selectedValue, myGrid);
 
-    for (let j = 0; j < 16 ; j++){
-        const randomBomb = randomNumbers (1,selectedValue);
-    
-        bombs.push(randomBomb);
-        
+    if (bombs.length == 16){
+        bombs = [];
     }
+    randomMines (selectedValue, bombs);
     
-    console.log(bombs);
+
+
+    // for (let j = 0; j < 16 ; j++){
+    //     let randomBomb = randomNumbers (1,selectedValue);
+    
+        
+    //     let foundInArray = bombs.includes (randomBomb);
+    //     while (foundInArray == true){
+    //         randomBomb = randomNumbers (1, selectedValue);
+    //         foundInArray = bombs.includes (randomBomb);
+    //     }
+
+    //     bombs.push(randomBomb);
+    // }
+    
+    // console.log(bombs);
     
 });
 
@@ -46,15 +59,37 @@ function stampCells (value, container){
             console.log (this.innerHTML=i);
         });
 
-
+        
     }
+
+
+
 }
+
+
+
 
 function randomNumbers (min,max){
     const num = Math.floor(Math.random() * (max - min + 1)) + min
     return num;
 }
 
+function randomMines(value, array){
+    for (let j = 0; j < 16 ; j++){
+        let randomBomb = randomNumbers (1,value);
+    
+        
+        let foundInArray = array.includes (randomBomb);
+        while (foundInArray == true){
+            randomBomb = randomNumbers (1, value);
+            foundInArray = array.includes (randomBomb);
+        }
+
+        array.push(randomBomb);
+    }
+    
+    console.log(array);
+}
 
     
 
