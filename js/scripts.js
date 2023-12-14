@@ -6,9 +6,11 @@ const mySelect = document.getElementById('my-select');
 
 let bombs = [];
 
-let bombsNumber = 16;
+let bombsNumber = 2;
 
 let score = 0;
+
+let matchResult = document.getElementById('match-result');
 
 myButton.addEventListener ('click', function(){
 
@@ -55,7 +57,8 @@ function stampCells (value, container){
 
             if (flag == true){
                 this.classList.add('bg-danger');
-                alert('Hai perso!');
+                // alert('Hai Perso! ' + 'Il tuo punteggio è: ' + score);
+                matchResult.innerHTML = `Hai Perso! il tuo punteggio è: ${score}`;
             }else{
                 this.classList.add('bg-primary');
                 score++
@@ -65,7 +68,8 @@ function stampCells (value, container){
             //controllo celle cliccate (possibile vincita) (celle-bombe);
 
             if(score === (value - bombsNumber)){
-                alert('Hai vinto');
+                // alert('Hai vinto! ' + 'Il tuo punteggio è: ' + score);
+                matchResult.innerHTML = `Hai vinto! il tuo punteggio è: ${score}`;
             }
 
             console.log (this.innerHTML=i);
@@ -81,7 +85,7 @@ function randomNumbers (min,max){
 }
 
 function randomMines(value, array){
-    for (let number = 1; number <= 16 ; number++){
+    for (let number = 1; number <= 2 ; number++){
         let randomBomb = randomNumbers (1,value);
     
         
