@@ -1,0 +1,41 @@
+/* 
+    reset 
+*/
+
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+/* 
+    general 
+*/
+.myw-100{
+    width: 100px;
+}
+
+.minh-100{
+    min-height: 100px;
+}
+
+.width-100{
+    width: 100%;
+}
+
+.square{
+    width: 10%;
+    height: 100px;
+}
+
+/* 
+    header 
+*/
+
+/* 
+    main 
+*/
+
+/* 
+    footer 
+*/
