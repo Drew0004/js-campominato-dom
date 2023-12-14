@@ -59,6 +59,8 @@ function stampCells (value, container){
                 this.classList.add('bg-danger');
                 // alert('Hai Perso! ' + 'Il tuo punteggio è: ' + score);
                 matchResult.innerHTML = `Hai Perso! il tuo punteggio è: ${score}`;
+                setTimeout(() => {myGrid.innerHTML='';}, 2000);
+                // myGrid.innerHTML='';
             }else{
                 this.classList.add('bg-primary');
                 score++
@@ -70,6 +72,7 @@ function stampCells (value, container){
             if(score === (value - bombsNumber)){
                 // alert('Hai vinto! ' + 'Il tuo punteggio è: ' + score);
                 matchResult.innerHTML = `Hai vinto! il tuo punteggio è: ${score}`;
+                myGrid.innerHTML='';
             }
 
             console.log (this.innerHTML=i);
