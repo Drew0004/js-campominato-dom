@@ -6,8 +6,9 @@ const mySelect = document.getElementById('my-select');
 
 let bombs = [];
 
+let bombsNumber = 16;
 
-
+let score = 0;
 
 myButton.addEventListener ('click', function(){
 
@@ -49,6 +50,7 @@ function stampCells (value, container){
                 if (bombs[j] == i){
                     flag = true;
                 }
+
             }
 
             if (flag == true){
@@ -56,10 +58,15 @@ function stampCells (value, container){
                 alert('Hai perso!');
             }else{
                 this.classList.add('bg-primary');
+                score++
+                console.log ('score: '+ score);
             }
 
             //controllo celle cliccate (possibile vincita) (celle-bombe);
-            
+
+            if(score === (value - bombsNumber)){
+                alert('Hai vinto');
+            }
 
             console.log (this.innerHTML=i);
         });
