@@ -6,7 +6,7 @@ const mySelect = document.getElementById('my-select');
 
 let bombs = [];
 
-let bombsNumber = 2;
+let bombsNumber = 16;
 
 let score = 0;
 
@@ -88,7 +88,7 @@ function randomNumbers (min,max){
 }
 
 function randomMines(value, array){
-    for (let number = 1; number <= 2 ; number++){
+    for (let number = 1; number <= 16 ; number++){
         let randomBomb = randomNumbers (1,value);
     
         
